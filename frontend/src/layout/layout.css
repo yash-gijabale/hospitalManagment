@@ -1,0 +1,19 @@
+.app_container{
+    width: 100vw;
+    min-height: 100vh;
+    height: auto;
+    /* background-color: aqua; */
+    display: flex;
+}
+
+.sidebar_main{
+    width: 18%;
+    /* background-color: antiquewhite; */
+    height: auto;
+    min-height: 100vh;
+    border-right: 0.5px dotted lightgray;
+}
+
+.app_view{
+    width: 82%;
+}
