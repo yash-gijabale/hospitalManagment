@@ -12,8 +12,19 @@
     height: auto;
     min-height: 100vh;
     border-right: 0.5px dotted lightgray;
+    position: fixed;
 }
 
 .app_view{
     width: 82%;
+    /* background-color: aqua; */
+    position: relative;
+    left: 18%;
+}
+
+.navbar{
+    position: fixed !important;
+    width: 82% !important;
+    z-index: 99 !important;
+    /* margin-bottom: 3rem !important; */
 }

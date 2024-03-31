@@ -1,0 +1,12 @@
+.page_title{
+    width: 100% !important;
+    font-size: 25px;
+    text-align: start;
+    /* background-color: aqua; */
+    padding: 0;
+    /* height: 10px; */
+}
+
+.page_title h4{
+    margin: 0;
+}

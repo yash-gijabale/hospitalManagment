@@ -26,7 +26,7 @@ const Header = () => {
     return (
       <Box sx={{ flexGrow: 1 }}>
    
-        <AppBar position="static" className='navbar' style={{width: '100%', backgroundColor:"#b3e5fc", boxShadow:'none'}}>
+        <AppBar position="static" className='navbar' style={{width: '100%', backgroundColor:"#fcb900", boxShadow:'none', color:'black'}}>
           <Toolbar>
             <IconButton
               size="large"
