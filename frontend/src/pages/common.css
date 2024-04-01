@@ -7,3 +7,14 @@
     /* flex-direction: column; */
     /* gap: 1rem; */
 }
+
+/* .timeline_card{
+    background-color: red !important;
+} */
+.timeline_card:hover{
+    background-color: #fff !important;
+}
+
+.css-1ms7hib-MuiTimelineItem-root::before{
+    content: none !important;
+}
