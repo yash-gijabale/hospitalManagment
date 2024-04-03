@@ -7,6 +7,8 @@ import NewPatient from '../pages/patient/NewPatient'
 import Header from '../component/Header'
 import PatientsList from '../pages/patient/PatientsList'
 import PatientDetails from '../pages/patient/PatientDetails'
+import NewDoctor from '../pages/doctor/NewDoctor'
+import DoctorList from '../pages/doctor/DoctorList'
 
 
 
@@ -22,6 +24,8 @@ const Layout = () => {
                     <Route path='/new-patient' Component={NewPatient} />
                     <Route path='/all-patients' Component={PatientsList} />
                     <Route path='/patient-details/:id' Component={PatientDetails} />
+                    <Route path='/add-doctor' Component={NewDoctor} />
+                    <Route path='/doctor-list' Component={DoctorList} />
                 </Routes>
 
             </div>

@@ -104,21 +104,25 @@ const Sidebar = () => {
           </ListItemButton>
           <Collapse in={open.doctor} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-              <ListItemButton sx={{ pl: 4 }}>
-                <ListItemIcon>
-                  <PersonAddIcon sx={{ color: "black" }} />
-                </ListItemIcon>
-                <ListItemText primary="New Doctor" />
-              </ListItemButton>
+              <Link to={"/add-doctor"}>
+                <ListItemButton sx={{ pl: 4 }}>
+                  <ListItemIcon>
+                    <PersonAddIcon sx={{ color: "black" }} />
+                  </ListItemIcon>
+                  <ListItemText primary="New Doctor" />
+                </ListItemButton>
+              </Link>
             </List>
 
             <List component="div" disablePadding>
-              <ListItemButton sx={{ pl: 4 }}>
-                <ListItemIcon>
-                  <PersonAddIcon sx={{ color: "black" }} />
-                </ListItemIcon>
-                <ListItemText primary="All Doctors" />
-              </ListItemButton>
+              <Link to={'/doctor-list'}>
+                <ListItemButton sx={{ pl: 4 }}>
+                  <ListItemIcon>
+                    <PersonAddIcon sx={{ color: "black" }} />
+                  </ListItemIcon>
+                  <ListItemText primary="All Doctors" />
+                </ListItemButton>
+              </Link>
             </List>
             <List component="div" disablePadding>
               <ListItemButton sx={{ pl: 4 }}>

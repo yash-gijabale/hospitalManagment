@@ -27,3 +27,7 @@ a{
   border-radius: 5px;
   margin-top: 5rem;
 }
+
+.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select{
+  text-align: left !important;
+}

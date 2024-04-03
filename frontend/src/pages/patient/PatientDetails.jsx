@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PageTitle from "../../component/common/PageTitle";
 
 import Card from "@mui/material/Card";
@@ -29,6 +29,14 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+
 import "../common.css";
 // const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 //   height: 10,
@@ -55,8 +63,20 @@ const Modalstyle = {
   p: 2,
 };
 
+function createData(name, calories, fat, carbs, protein) {
+  return { name, calories, fat, carbs, protein };
+}
+
+const rows = [
+  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
+  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
+  createData("Eclair", 262, 16.0, 24, 6.0),
+  createData("Cupcake", 305, 3.7, 67, 4.3),
+  createData("Gingerbread", 356, 16.0, 49, 3.9),
+];
+
 const PatientDetails = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -219,9 +239,15 @@ const PatientDetails = () => {
                   <Box
                     component="form"
                     sx={{
-                      "& > :not(style)": { m: 1, width: "44ch" },
+                      "& > :not(style)": { m: 1, width: "21ch" },
                     }}
                   >
+                    <TextField
+                      id="outlined-basic"
+                      label="Current Value  "
+                      variant="outlined"
+                      type="number"
+                    />
                     <FormControl fullWidth>
                       <InputLabel id="demo-simple-select-label">
                         Color
@@ -247,108 +273,176 @@ const PatientDetails = () => {
                       </Select>
                     </FormControl>
                   </Box>
-                  <Button variant="contained" sx={{marginLeft:'0.5rem'}}>Add</Button>
+                  <Button variant="contained" sx={{ marginLeft: "0.5rem" }}>
+                    Add
+                  </Button>
                 </Box>
               </form>
             </Modal>
           </Card>
         </div>
         <div style={{ width: "70%" }}>
-          <Card
-            disableRipple
-            style={{
-              backgroundColor: "#FFF",
-              "&:hover": {
-                //you want this to be the same as the backgroundColor above
-                backgroundColor: "#FFF",
-              },
-            }}
-            className="timeline_card"
-          >
-            <CardActionArea
+          <div style={{ width: "100%", marginBottom: "1rem" }}>
+            <Card
               disableRipple
-              style={{ width: "100%", justifyContent: "start" }}
+              style={{
+                backgroundColor: "#FFF",
+                "&:hover": {
+                  //you want this to be the same as the backgroundColor above
+                  backgroundColor: "#FFF",
+                },
+              }}
+              className="timeline_card"
             >
-              <Typography
-                variant="h6"
-                sx={{ textAlign: "start", marginLeft: "1rem" }}
+              <CardActionArea
+                disableRipple
+                style={{ width: "100%", justifyContent: "start" }}
               >
-                History
-              </Typography>
-              <Timeline sx={{ alignItems: "flex-start !important" }}>
-                <TimelineItem>
-                  <TimelineSeparator>
-                    <TimelineDot />
-                    <TimelineConnector />
-                  </TimelineSeparator>
-                  <TimelineContent>
-                    <Typography variant="h6">02-03-2024</Typography>
-                    <Typography variant="span">
-                      Spinal Osteomyelitis Surgery
-                    </Typography>
-                    <br />
-                    <Typography variant="span" color={"primary"}>
-                      Dr. S.S. Patil
-                    </Typography>
-                    <br />
-                    <Typography variant="p">Comment:</Typography>
-                    <br />
-                    <Typography variant="p">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Quasi nostrum fuga mollitia aperiam in.
-                    </Typography>
-                  </TimelineContent>
-                </TimelineItem>
-                <br />
-                <TimelineItem>
-                  <TimelineSeparator>
-                    <TimelineDot />
-                    <TimelineConnector />
-                  </TimelineSeparator>
-                  <TimelineContent>
-                    <Typography variant="h6">15-01-2024</Typography>
-                    <Typography variant="span">
-                      Spinal Osteomyelitis Surgery
-                    </Typography>
-                    <br />
-                    <Typography variant="span" color={"primary"}>
-                      Dr. S.S. Patil
-                    </Typography>
-                    <br />
-                    <Typography variant="p">Comment:</Typography>
-                    <br />
-                    <Typography variant="p">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Quasi nostrum fuga mollitia aperiam in.
-                    </Typography>
-                  </TimelineContent>
-                </TimelineItem>
-                <TimelineItem>
-                  <TimelineSeparator>
-                    <TimelineDot />
-                    <TimelineConnector />
-                  </TimelineSeparator>
-                  <TimelineContent>
-                    <Typography variant="h6">15-01-2024</Typography>
-                    <Typography variant="span">
-                      Spinal Osteomyelitis Surgery
-                    </Typography>
-                    <br />
-                    <Typography variant="span" color={"primary"}>
-                      Dr. S.S. Patil
-                    </Typography>
-                    <br />
-                    <Typography variant="p">Comment:</Typography>
-                    <br />
-                    <Typography variant="p">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Quasi nostrum fuga mollitia aperiam in.
-                    </Typography>
-                  </TimelineContent>
-                </TimelineItem>
-              </Timeline>
-            </CardActionArea>
-          </Card>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    textAlign: "start",
+                    marginLeft: "1rem",
+                    fontWeight: 600,
+                  }}
+                >
+                  History
+                </Typography>
+                <Timeline sx={{ alignItems: "flex-start !important" }}>
+                  <TimelineItem>
+                    <TimelineSeparator>
+                      <TimelineDot />
+                      <TimelineConnector />
+                    </TimelineSeparator>
+                    <TimelineContent>
+                      <Typography variant="h6">02-03-2024</Typography>
+                      <Typography variant="span">
+                        Spinal Osteomyelitis Surgery
+                      </Typography>
+                      <br />
+                      <Typography variant="span" color={"primary"}>
+                        Dr. S.S. Patil
+                      </Typography>
+                      <br />
+                      <Typography variant="p">Comment:</Typography>
+                      <br />
+                      <Typography variant="p">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Quasi nostrum fuga mollitia aperiam in.
+                      </Typography>
+                    </TimelineContent>
+                  </TimelineItem>
+                  <br />
+                  <TimelineItem>
+                    <TimelineSeparator>
+                      <TimelineDot />
+                      <TimelineConnector />
+                    </TimelineSeparator>
+                    <TimelineContent>
+                      <Typography variant="h6">15-01-2024</Typography>
+                      <Typography variant="span">
+                        Spinal Osteomyelitis Surgery
+                      </Typography>
+                      <br />
+                      <Typography variant="span" color={"primary"}>
+                        Dr. S.S. Patil
+                      </Typography>
+                      <br />
+                      <Typography variant="p">Comment:</Typography>
+                      <br />
+                      <Typography variant="p">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Quasi nostrum fuga mollitia aperiam in.
+                      </Typography>
+                    </TimelineContent>
+                  </TimelineItem>
+                  <TimelineItem>
+                    <TimelineSeparator>
+                      <TimelineDot />
+                      <TimelineConnector />
+                    </TimelineSeparator>
+                    <TimelineContent>
+                      <Typography variant="h6">15-01-2024</Typography>
+                      <Typography variant="span">
+                        Spinal Osteomyelitis Surgery
+                      </Typography>
+                      <br />
+                      <Typography variant="span" color={"primary"}>
+                        Dr. S.S. Patil
+                      </Typography>
+                      <br />
+                      <Typography variant="p">Comment:</Typography>
+                      <br />
+                      <Typography variant="p">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Quasi nostrum fuga mollitia aperiam in.
+                      </Typography>
+                    </TimelineContent>
+                  </TimelineItem>
+                </Timeline>
+              </CardActionArea>
+            </Card>
+          </div>
+          <div style={{ width: "100%" }}>
+            <Card
+              disableRipple
+              style={{
+                backgroundColor: "#FFF",
+                "&:hover": {
+                  //you want this to be the same as the backgroundColor above
+                  backgroundColor: "#FFF",
+                },
+              }}
+              className="timeline_card"
+            >
+              <CardActionArea
+                disableRipple
+                style={{ width: "100%", justifyContent: "start" }}
+              >
+                <Typography
+                  variant="h6"
+                  sx={{
+                    textAlign: "start",
+                    marginLeft: "1rem",
+                    fontWeight: 600,
+                  }}
+                >
+                  Billing
+                </Typography>
+                <TableContainer component={Paper}>
+                  <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Dessert (100g serving)</TableCell>
+                        <TableCell align="right">Calories</TableCell>
+                        <TableCell align="right">Fat&nbsp;(g)</TableCell>
+                        <TableCell align="right">Carbs&nbsp;(g)</TableCell>
+                        <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {rows.map((row) => (
+                        <TableRow
+                          key={row.name}
+                          sx={{
+                            "&:last-child td, &:last-child th": { border: 0 },
+                          }}
+                        >
+                          <TableCell component="th" scope="row">
+                            {row.name}
+                          </TableCell>
+                          <TableCell align="right">{row.calories}</TableCell>
+                          <TableCell align="right">{row.fat}</TableCell>
+                          <TableCell align="right">{row.carbs}</TableCell>
+                          <TableCell align="right">{row.protein}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </CardActionArea>
+            </Card>
+          </div>
         </div>
       </div>
     </div>

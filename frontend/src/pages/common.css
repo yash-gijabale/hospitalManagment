@@ -8,9 +8,26 @@
     /* gap: 1rem; */
 }
 
-/* .timeline_card{
-    background-color: red !important;
-} */
+.timeline_card{
+    height: 57vh !important;
+    overflow-y: auto !important;
+}
+
+.timeline_card::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  .timeline_card::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  .timeline_card::-webkit-scrollbar-thumb {
+    background: #a6a5a5; 
+    border-radius: 5px;
+  }
+  
 .timeline_card:hover{
     background-color: #fff !important;
 }
